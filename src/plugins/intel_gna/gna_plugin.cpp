@@ -1653,7 +1653,7 @@ std::vector<std::shared_ptr<const ov::Node>> GNAPlugin::GetInputs() {
             ov::PartialShape(input.dims));
         param->set_friendly_name(input.name);
         param->get_output_tensor(0).add_names(input.tensor_names);
-        params.emplace_back(move(param));
+        params.emplace_back(std::move(param));
     }
     return params;
 }
